@@ -1,0 +1,5 @@
+venv
+*.json
+credentials.py
+__pycache__
+*.swp
