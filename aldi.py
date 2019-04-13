@@ -85,6 +85,7 @@ def iterate_months():
 
 
 def get_abo_infos():
+    print("get abo infos")
     resp = session.get("https://www.alditalk-kundenbetreuung.de/de")
     bs = BeautifulSoup(resp.text, 'html.parser')
     free = bs.find("span", attrs={'class':'pack__usage-remaining'}).text
@@ -96,6 +97,7 @@ def get_abo_infos():
 
 
 def get_summary_of_current_month():
+    print("get sumary of month")
     today = arrow.now()
     data = get_einzelverbindung_of_month(today.year, today.month)
     data = sorted(data, key=lambda x: x['volume'], reverse=True)[:10]
@@ -112,6 +114,7 @@ def go():
     output = []
     output.append(get_abo_infos())
     output.extend(get_summary_of_current_month())
+    #print(output)
     return output
 
 if __name__ == '__main__':
