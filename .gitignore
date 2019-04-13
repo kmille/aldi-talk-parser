@@ -3,3 +3,4 @@ venv
 credentials.py
 __pycache__
 *.swp
+cookies.json
